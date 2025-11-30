@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lemonade Sales Predictor</title>
+    <title>MLOps Interactive Showcase - Lemonade Tycoon</title>
     
     <!-- 1. Bootstrap CSS CDN (v5.3) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -24,8 +24,8 @@
                 <div class="section h-100 px-2 mx-0">
                     <h5>Parameters</h5>
 
-                    <label for="param_price" class="form-label">Price per cup : </label>
-                    <input type="range" class="form-range" min="0" max="100" id="param_price">
+                    <label for="param_price" class="form-label">Price per cup  : RM <span id="param_price_label"></span></label>
+                    <input oninput="priceDisplay.textContent = priceSlider.value;" type="range" value="5.0" class="form-range" min="0" max="20" step="0.1" id="param_price_value">
                 </div>
             </div>
             <div class="col-3 px-1">
@@ -66,7 +66,6 @@
                         </div>
                     </div>
                 </div>
-                
             </div>
             <div class="col-4">
                 <h5>Simulation Settings</h5>
@@ -82,7 +81,19 @@
     
     <!-- 2. Bootstrap JS and Popper CDN (Required for Bootstrap's interactive components like dropdowns) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" ></script>
 
-       
+    <script>
+        const priceSlider = document.getElementById('param_price_value');
+        const priceDisplay = document.getElementById('param_price_label');
+        $( document ).ready(function() {
+
+            updatePriceLabel()
+        });
+
+        function updatePriceLabel() {
+                priceDisplay.textContent = priceSlider.value;
+        }
+    </script>
 </body>
 </html>
