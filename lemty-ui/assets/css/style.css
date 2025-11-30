@@ -1,0 +1,41 @@
+:root {
+        --color1: #F9D400;
+        --color2: #13BD0A;
+        --color3: rgba(12,137,5,.5);
+        --color4: #F64242;
+        --color5: #FFFFFF;
+}
+
+body {
+    background-color: var(--color2);
+    color: var(--color5);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* FONTS */
+.font-chopsticks {
+    font-family: 'chopsticksregular', sans-serif;
+    color: var(--color1);
+    -webkit-text-stroke-width: .4pt; /* Define the stroke thickness */
+    -webkit-text-stroke-color: black; /* Define the stroke color */
+}
+
+/* CUSTOM */
+.section {
+    background: var(--color3);
+    padding-top: 5px;
+    border-radius: 5px;
+}
+
+.section-container {
+    padding:0 0 0 0;
+}
+
+.history-card{
+    background-color: var(--color1);
+    color: black;
+    border-radius: 10px;
+    padding: 15px;
+}
