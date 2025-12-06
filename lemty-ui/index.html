@@ -24,14 +24,22 @@
                 <div class="section h-100 px-2 mx-0">
                     <h5>Parameters</h5>
 
+                    <label for="param_location_label" class="form-label">Location:</label>
+                    <select onchange="changeLocationImage()" type="select" value="" class="form-select" id="param_location_value">
+                    </select>
+
                     <label for="param_price" class="form-label">Price per cup  : RM <span id="param_price_label"></span></label>
-                    <input oninput="priceDisplay.textContent = priceSlider.value;" type="range" value="5.0" class="form-range" min="0" max="20" step="0.1" id="param_price_value">
+                    <input oninput="updatePriceLabel()" type="range" value="5.0" class="form-range" min="0" max="20" step="0.1" id="param_price_value">
+                
+                    <h6 class="mt-3">Recipe:</h6>
+                    <label for="param_price" class="form-label">Price per cup  : RM <span id="param_price_label"></span></label>
+                    <input oninput="" type="range" value="5.0" class="form-range" min="0" max="20" step="0.1" id="param__value">
                 </div>
             </div>
             <div class="col-3 px-1">
                 <div class="section h-100 px-2 mx-0">
                     <h5>Lemonade Tycoon</h5>
-                    <img src="assets/img/stall.png" class="img-fluid" alt="">
+                    <img id="location_image" src="assets/img/locations/suburbs.png" class="img-fluid" alt="">
                 </div>
                 
             </div>
@@ -82,18 +90,9 @@
     <!-- 2. Bootstrap JS and Popper CDN (Required for Bootstrap's interactive components like dropdowns) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" ></script>
+    <script src="assets/js/script.js"></script>
 
-    <script>
-        const priceSlider = document.getElementById('param_price_value');
-        const priceDisplay = document.getElementById('param_price_label');
-        $( document ).ready(function() {
+    
 
-            updatePriceLabel()
-        });
-
-        function updatePriceLabel() {
-                priceDisplay.textContent = priceSlider.value;
-        }
-    </script>
 </body>
 </html>
