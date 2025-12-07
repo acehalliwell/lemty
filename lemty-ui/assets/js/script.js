@@ -1,5 +1,4 @@
-const priceSlider = document.getElementById('param_price_value');
-const priceDisplay = document.getElementById('param_price_label');
+
 
 // Population of locations
 var locationDropdown = 
@@ -13,24 +12,47 @@ var locationDropdown =
 $( document ).ready(function() {
 
     updatePriceLabel();
+    updateAdsLabel();
     populateLocationDropdown();
+    updatePopulationLabel();
 });
 
 function populateLocationDropdown() {
 
-    const locationSelect = document.getElementById('param_location_value');
+    // const locationSelect = document.getElementById('param_location_value');
+    const locationSelect = $('#param_location_value');
     
     for (const location in locationDropdown) {
         const option = document.createElement('option');
         option.value = locationDropdown[location];
         option.text = location;
-        locationSelect.appendChild(option);
+        locationSelect.append(option);
     }
 }
 
+function updatePopulationLabel() {
+    const locationSelect = $('#param_location_value');
+    const population = locationSelect.val();
+    const populationSelect = $('#population_value');
+    populationSelect.text(population);
+}
 
 function updatePriceLabel() {
-        priceDisplay.textContent = parseFloat(priceSlider.value).toFixed(1);
+
+    const priceDisplay = $('#param_price_label');
+    const priceSlider = $('#param_price_value');
+    
+    price = parseFloat(priceSlider.val()).toFixed(1);
+    priceDisplay.text(price);
+}
+
+function updateAdsLabel() {
+
+    const adsDisplay = $('#param_ads_label');
+    const adsSlider = $('#param_ads_value');
+    
+    cost = parseFloat(adsSlider.val()).toFixed(1);
+    adsDisplay.text(cost);
 }
 
 function changeLocationImage() {
@@ -45,5 +67,5 @@ function changeLocationImage() {
 
     var newLocationImageURL = locationImage.src.replace(/\w+.png/,  newLocationImage + ".png");
     locationImage.src = newLocationImageURL;
-
+    updatePopulationLabel();
 }

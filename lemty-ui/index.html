@@ -16,38 +16,28 @@
     <div class="main-container container-fluid">
         <div class="row py-0">
             <div class="col-12 text-start my-0 py-0 pt-2">
-                <h1 class="font-chopsticks"><span>🍋 </span>Lemonade Tycoon Simulation Game</h1>
+                <h1 class="font-chopsticks"><span>🍋 </span>Lemonade Tycoon Simulation Game - MLOps Interactive Showcase</h1>
             </div>
         </div>
         <div class="row gy-2">
-            <div class="col-2 px-1">
-                <div class="section h-100 px-2 mx-0">
-                    <h5>Parameters</h5>
-
-                    <label for="param_location_label" class="form-label">Location:</label>
-                    <select onchange="changeLocationImage()" type="select" value="" class="form-select" id="param_location_value">
-                    </select>
-
-                    <label for="param_price" class="form-label">Price per cup  : RM <span id="param_price_label"></span></label>
-                    <input oninput="updatePriceLabel()" type="range" value="5.0" class="form-range" min="0" max="20" step="0.1" id="param_price_value">
-                
-                    <h6 class="mt-3">Recipe:</h6>
-                    <label for="param_price" class="form-label">Price per cup  : RM <span id="param_price_label"></span></label>
-                    <input oninput="" type="range" value="5.0" class="form-range" min="0" max="20" step="0.1" id="param__value">
-                </div>
-            </div>
+            
             <div class="col-3 px-1">
                 <div class="section h-100 px-2 mx-0">
                     <h5>Lemonade Tycoon</h5>
                     <img id="location_image" src="assets/img/locations/suburbs.png" class="img-fluid" alt="">
+                    <p class="mt-1">Population (<span id="population_value"></span>)</p>
+                    <hr>
+                    <button type="button" class="btn btn-outline-warning">Generate Data</button>
+                    <button type="button" class="btn btn-warning">Simulate</button>
+                    <button type="button" class="btn btn-warning">Simulate (Auto)</button>
                 </div>
                 
             </div>
-            <div class="col-3 px-1">
+            <div class="col-2 px-1">
 
                 <div class="section h-100 px-2 mx-0">
                     <h5>History</h5>
-                    <div class="row g-1 overflow-y-hidden" style="max-height: 370px;">
+                    <div class="row g-1 overflow-y-hidden" style="max-height: 300px;">
                         <div class="col-12 history-card">
                             <p>Day 1: Sold 50 cups of lemonade.</p>
                         </div>
@@ -75,8 +65,55 @@
                     </div>
                 </div>
             </div>
+            <div class="col-3 px-1">
+                <div class="section h-100 px-2 mx-0">
+                    <h5>Parameters</h5>
+
+                    <label for="param_location_value" class="form-label">Location</label>
+                    <select onchange="changeLocationImage()" type="select" value="" class="form-select" id="param_location_value">
+                    </select>
+                    <hr>
+                    <label for="param_price_value" class="form-label">Price per cup  : RM <span id="param_price_label"></span></label>
+                    <input oninput="updatePriceLabel()" type="range" value="5.0" class="form-range" min="0" max="20" step="0.1" id="param_price_value">
+  
+                    <div class="row g-1">
+                        <h6 class="mt-3 color-1">Recipe Ratio</h6>
+                        <div class="col">
+                            <label for="param_lemon_value" class="form-label">Lemon (pcs)</label>
+                            <div class="input-group">
+                                <span class="input-group-text px-1"><img src="assets/img/recipe/lemonade.png" alt="" width="25"></span>
+                                <input oninput="" type="number" value="5" class="form-control" id="param_lemon_value">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <label for="param_sugar_value" class="form-label">Sugar (tbs)</label>
+                            <div class="input-group">
+                                <span class="input-group-text px-1"><img src="assets/img/recipe/sugar.png" alt="" width="25"></span>
+                                <input oninput="" type="number" value="5" class="form-control" id="param_sugar_value">
+                            </div>
+
+                        </div>
+                        <div class="col">
+                            <label for="param_ice_value" class="form-label">Ice (qty)</label>
+                            <div class="input-group">
+                                <span class="input-group-text px-1"><img src="assets/img/recipe/ice_cubes.png" alt="" width="25"></span>
+                                <input oninput="" type="number" value="5" class="form-control" id="param_ice_value">
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr>
+                    <label for="param_ads_value" class="form-label">Advertisement Cost  : RM <span id="param_ads_label"></span></label>
+                    <input oninput="updateAdsLabel()" type="range" value="10" class="form-range" min="0" max="100" step="10" id="param_ads_value">
+  
+                </div>
+            </div>
+            
             <div class="col-4">
-                <h5>Simulation Settings</h5>
+                <div class="section h-100 px-2 mx-0">
+                    <h5>Simulation Settings</h5>
+                </div>
+                
             </div>
             <div class="col-8">
                 <h5>Sales</h5>
