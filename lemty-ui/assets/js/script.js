@@ -1,20 +1,11 @@
-
-
-// Population of locations
-var locationDropdown = 
-{
-    "The Suburbs": 50,
-    "The Park": 150,
-    "Downtown": 200,
-    "The Train Station": 1000
-};
-
 $( document ).ready(function() {
 
     updatePriceLabel();
     updateAdsLabel();
     populateLocationDropdown();
+    populateWeatherDropdown();
     updatePopulationLabel();
+
 });
 
 function populateLocationDropdown() {
@@ -22,11 +13,42 @@ function populateLocationDropdown() {
     // const locationSelect = document.getElementById('param_location_value');
     const locationSelect = $('#param_location_value');
     
-    for (const location in locationDropdown) {
+    for (const location in Locations) {
         const option = document.createElement('option');
-        option.value = locationDropdown[location];
+        option.value = Locations[location];
         option.text = location;
         locationSelect.append(option);
+    }
+}
+
+function populateWeatherDropdown() {
+    const weatherSelect = $('#weather-group');
+    let first = true;
+    for (const weather in Weathers) {
+
+        const div = document.createElement('div');
+        div.className = 'form-check form-check-inline';
+
+        const input = document.createElement('input');
+        input.className = 'form-check-input';
+        input.type = 'radio';
+        input.name = 'weatherCondition';
+        const dynamicId = 'weather_' + weather.toLowerCase();
+        input.id = dynamicId;
+
+        if (first) {
+            input.checked = true;
+            first = false;
+        }
+    
+        const label = document.createElement('label');
+                label.className = 'form-check-label';
+                label.setAttribute('for', dynamicId);
+                label.textContent =  `${weather} - (${Weathers[weather].toFixed(1)})` ;
+
+        div.appendChild(input);
+        div.appendChild(label);
+        weatherSelect.append(div);
     }
 }
 
