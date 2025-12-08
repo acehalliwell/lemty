@@ -44,7 +44,7 @@ function populateWeatherDropdown() {
         const label = document.createElement('label');
                 label.className = 'form-check-label';
                 label.setAttribute('for', dynamicId);
-                label.textContent =  `${weather} - (${Weathers[weather].toFixed(1)})` ;
+                label.textContent =  `${weather} - ${Weathers[weather].toFixed(1)}` ;
 
         div.appendChild(input);
         div.appendChild(label);

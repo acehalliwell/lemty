@@ -26,6 +26,6 @@ var Weathers =
     "Sunny": 1.0,
     "Cloudy": 0.8,
     "Rainy": 0.5,
-    "Thurnderstorm": 0.3,
+    "Thunderstorm": 0.3,
     "Hailstorm": 0.1
 };
