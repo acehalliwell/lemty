@@ -1,0 +1,19 @@
+services:
+  lemty:
+    image: lemty-ui
+    build:
+      context: ./lemty-ui/
+      dockerfile: ./Dockerfile
+    volumes:
+      # Mount the current directory into the container's web root
+      - ./lemty-ui:/var/www/html/
+    ports:
+      # Map port 8080 on your host to port 80 in the container
+      - "8080:80"
+    networks:
+      - lemty-network
+
+# Define the network
+networks:
+  lemty-network:
+    driver: bridge
