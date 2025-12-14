@@ -31,7 +31,7 @@ function populateWeatherDropdown() {
 
         const input = document.createElement('input');
         input.className = 'form-check-input';
-        input.type = 'radio';
+        input.type = 'checkbox';
         input.name = 'weatherCondition';
         const dynamicId = 'weather_' + weather.toLowerCase();
         input.id = dynamicId;
