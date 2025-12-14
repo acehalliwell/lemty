@@ -135,11 +135,10 @@
                                 </label>
                             </div> -->
                         </div>
-                        <div class="col">
-                            TEST
-                        </div>
-                        <div class="col">
-                            TEST
+                        <div id="event-group" class="col">
+                            Event
+                            <br>
+
                         </div>
                     </div>
                 </div>
@@ -158,6 +157,7 @@
     <!-- 2. Bootstrap JS and Popper CDN (Required for Bootstrap's interactive components like dropdowns) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" ></script>
+    <script src="assets/js/chance.min.js"></script>
     <script src="assets/js/simulation.js"></script>
     <script src="assets/js/script.js"></script>
 

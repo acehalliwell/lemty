@@ -4,6 +4,7 @@ $( document ).ready(function() {
     updateAdsLabel();
     populateLocationDropdown();
     populateWeatherDropdown();
+    populateEventDropdown();
     updatePopulationLabel();
 
 });
@@ -44,12 +45,45 @@ function populateWeatherDropdown() {
         const label = document.createElement('label');
                 label.className = 'form-check-label';
                 label.setAttribute('for', dynamicId);
-                label.textContent =  `${weather} - ${Weathers[weather].toFixed(1)}` ;
+                label.textContent =  `${weather} (x${Weathers[weather][0].toFixed(1)})` ;
 
         div.appendChild(input);
         div.appendChild(label);
         weatherSelect.append(div);
     }
+
+}
+
+function populateEventDropdown() {
+    const eventSelect = $('#event-group');
+    let first = true;
+    for (const event in Events) {
+
+        const div = document.createElement('div');
+        div.className = 'form-check form-check-inline';
+
+        const input = document.createElement('input');
+        input.className = 'form-check-input';
+        input.type = 'checkbox';
+        input.name = 'event';
+        const dynamicId = 'event_' + event.toLowerCase().replace(' ','_');
+        input.id = dynamicId;
+
+        if (first) {
+            input.checked = true;
+            first = false;
+        }
+    
+        const label = document.createElement('label');
+                label.className = 'form-check-label';
+                label.setAttribute('for', dynamicId);
+                label.textContent =  `${event} (x${Events[event][0].toFixed(1)})` ;
+
+        div.appendChild(input);
+        div.appendChild(label);
+        eventSelect.append(div);
+    }
+
 }
 
 function updatePopulationLabel() {
