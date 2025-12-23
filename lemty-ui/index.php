@@ -125,7 +125,7 @@
                     <hr>
 
                     <div class="row">
-                        <div id="weather-group" class="col">
+                        <div id="weather-group" class="col-4">
                             Weather
                             <br>
                             <!-- <div class="form-check">
@@ -135,7 +135,7 @@
                                 </label>
                             </div> -->
                         </div>
-                        <div id="event-group" class="col">
+                        <div id="event-group" class="col-5">
                             Event
                             <br>
 
