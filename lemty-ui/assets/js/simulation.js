@@ -54,6 +54,30 @@ function testWeatherChance(n){
     }
 }
 
+function weatherChance(selectedWeathers,n){
+    var filteredWeathers = {};
+
+    for (const weather of selectedWeathers) {
+        filteredWeathers[weather] = Weathers[weather];
+    }
+
+    console.log("Selected Weathers:", filteredWeathers);
+
+    const labels = Object.keys(filteredWeathers);
+    const probability = labels.map(key => filteredWeathers[key][0]);
+    const weights = labels.map(key => filteredWeathers[key][1]);
+
+    const chance = new Chance();
+
+    weatherResults = [];
+
+    for (let index = 0; index < n; index++) {
+        var selectedEvent = chance.weighted(probability, weights);
+        weatherResults.push(selectedEvent);
+    }
+    return weatherResults;
+}
+
 function testEventChance(n){
 
     const labels = Object.keys(Events);
@@ -67,4 +91,7 @@ function testEventChance(n){
         console.log(selectedEvent);
     }
 }
-    
+
+function generateData(population, days) {
+
+}

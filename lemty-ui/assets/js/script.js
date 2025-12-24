@@ -119,9 +119,35 @@ function changeLocationImage() {
     newLocationImage = newLocationImage.toLowerCase();
     newLocationImage = newLocationImage.replace("the ","");
     newLocationImage = newLocationImage.replace(" ","_");
-    console.log(newLocationImage);
+    // console.log(newLocationImage);
 
     var newLocationImageURL = locationImage.src.replace(/\w+.png/,  newLocationImage + ".png");
     locationImage.src = newLocationImageURL;
     updatePopulationLabel();
+}
+
+function capitalizeFirstLetter(string) {
+  if (string.length === 0) {
+    return ""; // Handle empty strings
+  }
+  // Get the first character and convert it to uppercase
+  const firstLetter = string.charAt(0).toUpperCase();
+  // Get the rest of the string
+  const restOfString = string.slice(1);
+  // Concatenate them
+  return firstLetter + restOfString;
+}
+
+function initiateDataGeneration()
+{
+    var day = $('#sim_dataset_value').val();
+    var population = $('#param_location_value').val();    
+    var selectedWeathers = $('input[name="weatherCondition"]:checked').map(function() {
+        return capitalizeFirstLetter(this.id.replace('weather_',''));
+    }).get();
+
+
+    var weatherResults = weatherChance(selectedWeathers,10);
+    console.log("Generating data for " + day + " days with population " + population);
+    console.log("Weather Results:", weatherResults);
 }
